@@ -1,0 +1,2 @@
+name,       temp_min,   temp_max,   tone_min,   tone_max,   hum_min,    hum_max,    pm_min, pm_max, button_active,  printer_state,  outlet_1,   outlet_2,   outlet_3,   outlet_4,   printer_run
+temp_test,  20,         23,         -,          -,          -,          -,          -,      -,      -,              -,              -,          -,          -,          -,          -,

@@ -6,6 +6,15 @@ dark: bool = False
 light: bool = True
 
 
+def current_light():
+    global light
+    return light
+
+def current_dark():
+    global light
+    return light
+
+
 def init():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(17, GPIO.IN)

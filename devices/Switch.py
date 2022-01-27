@@ -3,12 +3,13 @@ import time
 
 import serial
 
-import Config
+from config import Config
 
-com: serial.Serial or None = None
+com: serial.Serial
 
 
 def init():
+    print("Inited")
     global com
     if com is not None:  # Return, if already initialized
         return
@@ -30,8 +31,7 @@ def init():
 
 
 def change(port: int, state: bool):
-    if com is None:
-        return
+    global com
     init()
     if state:
         logging.debug("Sending \"On\" request for outlet " + str(port))
@@ -63,7 +63,7 @@ def printer_off():
 
 
 def heater_on():
-    change(Config.heater_port, False)
+    change(Config.heater_port, True)
 
 
 def heater_off():
@@ -75,12 +75,3 @@ def close():
     com.close()
     com = None
 
-
-init()
-change(1, True)
-
-time.sleep(10)
-change(1, False)
-change(2, False)
-change(3, False)
-change(4, False)

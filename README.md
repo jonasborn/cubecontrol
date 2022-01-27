@@ -37,3 +37,5 @@ I probably will use to detect an open door.
 There is also a dust sensor planed, still waiting for the delivery.
 I'm also thinking about a audio measurement of my Webcam, detecting the high pitched noise of
 the smoke detector over the printer.
+
+https://www.makeuseof.com/tag/add-button-raspberry-pi-project/

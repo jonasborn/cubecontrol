@@ -1,17 +1,33 @@
-# This is a sample Python script.
-
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import time
+import tools.Rules
 
-# Press the green button in the gutter to run the script.
-import sensors.THSensor
-from devices.Switch import SwitchControl
+from sensors import THSensor
+from sensors import LightSensor
+from sensors import ToneSensor
+from sensors import PMSensor
+from sensors import PrinterSensor
+from sensors import ButtonSensor
 
 
-if __name__ == '__main__':
-    SwitchControl.init()
+THSensor.init()
+LightSensor.init()
+ToneSensor.init()
+PMSensor.init()
+ButtonSensor.init()
+PrinterSensor.init()
 
+tools.Rules.load("decisions.csv")
 
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+while True:
+    print(
+        tools.Rules.find(
+            THSensor.temperature,
+            ToneSensor.tone,
+            THSensor.humidity,
+            PMSensor.pm25,
+            PMSensor.pm10,
+            ButtonSensor.active,
+            PrinterSensor.state
+        )
+    )
+    time.sleep(.5)
